@@ -1,0 +1,24 @@
+{
+  "name": "ejercicio_objetos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "componete-1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "web-dev-server --node-resolve --open --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MCitlaliROrtiz/practicas_lit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MCitlaliROrtiz/practicas_lit/issues"
+  },
+  "homepage": "https://github.com/MCitlaliROrtiz/practicas_lit#readme",
+  "devDependencies": {
+    "@web/dev-server": "^0.1.35"
+  }
+}
