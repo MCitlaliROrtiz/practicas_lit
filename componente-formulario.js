@@ -12,11 +12,13 @@ export class ComponenteFormulario extends LitElement {
     static properties= {
 
             auto: { type: Object},
+            
         
     }
     constructor(){
         super()
-      this.auto =[]
+      this.auto =  [];
+
     }
 
     render() {
@@ -43,8 +45,16 @@ export class ComponenteFormulario extends LitElement {
            </div>
     </form>
     <div>
-  <componente-de-renderizado>
-   </componente-de-renderizado>
+
+  ${this.auto.map(e=>
+    html `<componente-de-renderizado
+    nombre=${e.nombre} 
+    marca=${e.marca}
+    año=${e.año}
+    version=${e.version}>
+  
+  </componente-de-renderizado>`
+  )}
     </div>
         `;
         
@@ -52,14 +62,15 @@ export class ComponenteFormulario extends LitElement {
     guardar(e) {
        
         e.preventDefault()
+        this.requestUpdate();
         this.auto.push({
-        nombre:this.shadowRoot.getElementById("nombre").value,
-        marca:this.shadowRoot.getElementById("marca").value,
-        año:this.shadowRoot.getElementById("año").value,
-        version:this.shadowRoot.getElementById("version").value
-        }
-        )
-        console.log(this.auto);
+            nombre:this.shadowRoot.getElementById("nombre").value,
+            marca:this.shadowRoot.getElementById("marca").value,
+            año:this.shadowRoot.getElementById("año").value,
+            version:this.shadowRoot.getElementById("version").value
+            })
+         console.log(this.auto);
+       ;
     }
 }
 customElements.define('componente-formulario', ComponenteFormulario);

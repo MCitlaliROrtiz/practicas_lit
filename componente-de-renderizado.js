@@ -4,30 +4,34 @@ export class ComponenteDeRenderizado extends LitElement {
         css`
             :host {
                 display: block;
-                background-color:ivory;
+                background-color:#7FB9C3;
             }
+            
         `
     ];
    static properties ={
 
-    auto: {type:Object}
-
+    auto: {type:Object},
+    nombre: { type: String},
+    marca: { type: String},
+    año: { type: String},
+    version: { type: String},
     }
+    
+
     render() {
         return html`
-        <h2>texto generico</h2>        `;
+
+        <div id= "img1">
+        <img src="https://img.freepik.com/foto-gratis/coche-sedan-azul-carretera-clima-nublado_114579-4053.jpg?w=2000" alt="auto">
+        </div> 
+        <div id="card">
+            <h2>${this.nombre}</h2>
+            <p>${this.marca}</p>
+            <p>${this.año}</p>
+            <p>${this.version}</p>
+        </div>     `;
     }
-    /*guardar(e) {
-       
-        e.preventDefault()
-        this.auto.push({
-        nombre:this.shadowRoot.getElementById("nombre").value,
-        marca:this.shadowRoot.getElementById("marca").value,
-        año:this.shadowRoot.getElementById("año").value,
-        version:this.shadowRoot.getElementById("version").value
-        }
-        )
-        console.log(this.auto);*/
-    }
+    
 }
 customElements.define('componente-de-renderizado', ComponenteDeRenderizado);
