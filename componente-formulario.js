@@ -5,8 +5,35 @@ export class ComponenteFormulario extends LitElement {
         css`
             :host {
                 display:block;
-                background-color:skyblue;
             }
+            .formulario{
+                background-color:skyblue;
+                display:flex;
+                flex-flow: row wrap;
+                flex-direction: row;
+                justify-content: space-evenly;
+                position:relative;
+                }
+             .tarjeta1{
+                display: flex;
+                flex-flow: column wrap;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin:auto;
+                padding:auto;
+             }
+            componente-de-renderizado{
+                display:flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                align-content: space-around;
+                height:255px;
+                margin:auto;
+                padding:auto;
+                width:198px;
+                
+            }
+        
         `
     ];
     static properties= {
@@ -23,7 +50,7 @@ export class ComponenteFormulario extends LitElement {
 
     render() {
         return html`
-        <form>
+        <form class="formulario">
            <div class="ingresoDeDatos"> 
                 <p>Nombre:</p>
                 <input id="nombre" type="text">
@@ -44,7 +71,7 @@ export class ComponenteFormulario extends LitElement {
                 <button id="btn" @click=${this.guardar}>Agregar</button>
            </div>
     </form>
-    <div>
+    <div class="tarjeta1">
 
   ${this.auto.map(e=>
     html `<componente-de-renderizado
@@ -61,7 +88,7 @@ export class ComponenteFormulario extends LitElement {
     }
     guardar(e) {
        
-        e.preventDefault()
+       e.preventDefault()
         this.requestUpdate();
         this.auto.push({
             nombre:this.shadowRoot.getElementById("nombre").value,
@@ -69,7 +96,7 @@ export class ComponenteFormulario extends LitElement {
             año:this.shadowRoot.getElementById("año").value,
             version:this.shadowRoot.getElementById("version").value
             })
-         console.log(this.auto);
+         ;
        ;
     }
 }

@@ -4,9 +4,21 @@ export class ComponenteDeRenderizado extends LitElement {
         css`
             :host {
                 display: block;
-                background-color:#7FB9C3;
+                
             }
-            
+            .contenedorDeTarjetas{
+                background-color:#6e7272;
+                height:295px;
+                width:198px;
+                display:flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+            }
+            img{
+        height:120px;
+        width:125px;
+            }
         `
     ];
    static properties ={
@@ -21,16 +33,17 @@ export class ComponenteDeRenderizado extends LitElement {
 
     render() {
         return html`
-
+        <div class="contenedorDeTarjetas">
         <div id= "img1">
         <img src="https://img.freepik.com/foto-gratis/coche-sedan-azul-carretera-clima-nublado_114579-4053.jpg?w=2000" alt="auto">
         </div> 
-        <div id="card">
+        <div id="tarjeta">
             <h2>${this.nombre}</h2>
             <p>${this.marca}</p>
             <p>${this.año}</p>
             <p>${this.version}</p>
-        </div>     `;
+        </div> 
+        </div>    `;
     }
     
 }
